@@ -14,7 +14,7 @@ then
 fi
 git init
 git add README.md
-git add .phil*
+git add `ls .phil* | grep -v .phil_profile`
 git config --global user.email "phil.lisitza@twopoint.com"
 git config --global user.name "phil lisitza"
 git commit -m "Auto-Commmit from (`uname -n`) on (`date`)"
