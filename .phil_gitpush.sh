@@ -8,7 +8,10 @@ read
 
 ls -d .* | grep -v phil > .gitignore
 ls | grep -v phil | grep -v README >> .gitignore
-echo "# dotfiles" >> README.md
+if ! [ -e README.md ]
+then
+ echo "# dotfiles" >> README.md
+fi
 git init
 git add README.md
 git add .phil*
