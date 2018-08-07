@@ -1,3 +1,11 @@
+echo remember to push the id_rsa.pub to github first
+echo here it is:
+cat ~/.ssh/id_rsa.pub
+
+echo hit enter when done
+read
+
+
 ls -d .* | grep -v phil > .gitignore
 ls | grep -v phil | grep -v README >> .gitignore
 echo "# dotfiles" >> README.md
