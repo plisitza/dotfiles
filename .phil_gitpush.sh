@@ -12,6 +12,9 @@ if ! [ -e README.md ]
 then
  echo "# dotfiles" >> README.md
 fi
+mv README.md README.md.bak
+grep -v "Updated on" README.md.bak > README.md
+echo "Updated on `date`" >> README.md
 git init
 git add README.md
 git add `ls .phil* | grep -v .phil_profile`

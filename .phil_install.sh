@@ -13,6 +13,8 @@ sudo yum install code
 
 ## install docker
 sudo yum install docker
+sudo service docker start
+sudo docker run hello-world
 
 ## install node
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | bash ## this looks like a bad idea, what's the better way?
@@ -63,6 +65,15 @@ if ! grep --quiet 'PATH=$PATH:~/bin' .phil_profile
 then
  echo 'PATH=$PATH:~/bin' >> .phil_profile
 fi
+
+## deal with ssh/keys
+
+if ! [ -e ~/.ssh/id_dsa.pub ]
+then
+  ssh-keygen -t dsa
+fi
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
 
 ## re-execute and import results from .bash_profile so changes above stick in current session
 . ~/.bash_profile
