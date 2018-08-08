@@ -1,2 +1,2 @@
 # dotfiles
-Updated on Wed Aug  8 09:52:49 CDT 2018
+Updated on Wed Aug  8 10:04:06 CDT 2018

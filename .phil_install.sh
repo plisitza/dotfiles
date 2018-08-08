@@ -11,6 +11,19 @@ sudo yum update
 ## install visual studio code
 sudo yum install code
 
+## uninstall docker
+sudo yum remove docker \
+                  docker-client \
+                  docker-client-latest \
+                  docker-common \
+                  docker-latest \
+                  docker-latest-logrotate \
+                  docker-logrotate \
+                  docker-selinux \
+                  docker-engine-selinux \
+                  docker-engine
+
+
 ## install docker
 sudo yum install docker
 sudo service docker start
