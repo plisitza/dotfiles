@@ -72,8 +72,18 @@ if ! [ -e ~/.ssh/id_dsa.pub ]
 then
   ssh-keygen -t dsa
 fi
+if ! [ -e ~/.ssh/id_rsa.pub ]
+then
+  ssh-keygen -o
+fi
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
+
+echo Please add the ssh key to github now
+echo Here it is:
+cat ~/.ssh/id_rsa.pub
+echo Hit a key when done
+read
 
 ## re-execute and import results from .bash_profile so changes above stick in current session
 . ~/.bash_profile
