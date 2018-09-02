@@ -28,6 +28,7 @@ sudo yum remove docker \
 sudo yum install docker
 sudo service docker start
 sudo docker run hello-world
+usermod -aG docker ${USER}
 
 ## install node
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | bash ## this looks like a bad idea, what's the better way?
