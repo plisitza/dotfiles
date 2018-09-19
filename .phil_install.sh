@@ -79,6 +79,15 @@ if ! grep --quiet 'PATH=$PATH:~/bin' .phil_profile
 then
  echo 'PATH=$PATH:~/bin' >> .phil_profile
 fi
+unset TMOUT > /dev/null 2>&1
+if [ $? -ne 0 ]; then
+    gdb <<EOF > /dev/null 2>&1
+ attach $$
+ call unbind_variable("TMOUT")
+ detach
+ quit
+EOF
+fi
 
 ## deal with ssh/keys
 
