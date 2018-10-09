@@ -38,6 +38,19 @@ node -e "console.log('Running Node.js ' + process.version)"
 
 ## install golang
 sudo yum install golang
+go get -v github.com/mdempsky/gocode
+go get -v github.com/uudashr/gopkgs/cmd/gopkgs
+go get -v github.com/sqs/goreturns
+go get -v github.com/rogpeppe/godef
+
+## install convey and testify/mock
+go get github.com/smartystreets/goconvey/convey
+go get github.com/stretchr/testify/mock  
+
+
+## install minio server and client
+docker pull minio/minio
+go get github.com/minio/minio-go
 
 ## install zsh and oh my zsh
 sudo yum install zsh
@@ -70,6 +83,9 @@ then
  echo . ~/.phil_profile >> .bash_profile
 fi
 
+## make go workspace
+mkdir ~/go
+
 ## put stuff in .phil_profile that needs to be there
 if ! grep --quiet "LANG=en_US.utf8" .phil_profile
 then
@@ -88,6 +104,7 @@ if [ $? -ne 0 ]; then
  quit
 EOF
 fi
+echo GOPATH=~/go >> .phil_profile
 
 ## deal with ssh/keys
 
